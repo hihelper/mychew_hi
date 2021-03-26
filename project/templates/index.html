@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block contents %}
+{% load static %}
+Hello world! <br>
+개발중 입니다. <br><br><br>
+
+
+
+{% if user.is_authenticated %}
+    <button><a href="{% url 'logout_page' %}">로그아웃</a></button><br>
+    {{ user }}
+{% else %}
+    <button><a href="{% url 'register_page' %}">회원가입</a></button><br>
+    <button><a href="{% url 'login_page' %}">로그인</a></button><br>
+{% endif %}
+
+{{ email }}
+
+
+
+{% if user.is_authenticated %}
+    {{ email }}
+{% else %}
+    <p>Please login to see this page.</p>
+{% endif %}
+
+
+
+
+
+{% endblock %}
